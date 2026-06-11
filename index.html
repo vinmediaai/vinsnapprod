@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VinSnap — Batch Processing</title>
+<title>VinSnap — AI Product Photography</title>
 <link rel="icon" href="data:,">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -150,10 +150,50 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-
 .detail-item{background:var(--card2);border-radius:var(--rx);padding:10px 12px}
 .detail-lbl{font-size:.72rem;color:var(--dim);display:block;margin-bottom:2px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
 .detail-val{font-size:.85rem;font-weight:700;color:var(--text);word-break:break-all}
-.img-link{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;background:var(--card2);border-radius:var(--rx);font-size:.82rem;text-decoration:none;color:var(--text);transition:.2s;border:1.5px solid transparent}
+.img-link{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;background:var(--card2);border-radius:var(--rx);font-size:.82rem;color:var(--text);transition:.2s;border:1.5px solid transparent}
 .img-link:hover{border-color:var(--accent);background:#f0f0ff}
 .img-link-label{font-weight:600}
 .img-link-sub{font-size:.72rem;color:var(--dim);margin-top:1px}
+.dl-btn{display:inline-flex;align-items:center;gap:4px;padding:5px 12px;border-radius:var(--rx);background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-family:'Outfit',sans-serif;font-size:.76rem;font-weight:700;border:none;cursor:pointer;flex-shrink:0;transition:.2s}
+.dl-btn:hover{opacity:.85}
+.dl-all-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:var(--rx);background:linear-gradient(135deg,var(--green),#047857);color:#fff;font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:700;border:none;cursor:pointer;transition:.2s}
+.dl-all-btn:hover{opacity:.85}
+/* job history */
+.jhist-wrap{margin-top:4px}
+.jhist-title{font-size:.82rem;font-weight:700;color:var(--dim2);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.jhist-table{width:100%;border-collapse:collapse;font-size:.78rem}
+.jhist-table th{text-align:left;padding:7px 10px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--dim);border-bottom:2px solid var(--border);white-space:nowrap}
+.jhist-table td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:middle}
+.jhist-table tr:last-child td{border-bottom:none}
+.jhist-table tr:hover td{background:var(--card2)}
+.jhist-chip{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:20px;font-size:.72rem;font-weight:700}
+.jhist-chip.pending{background:#fef3c7;color:#92400e}
+.jhist-chip.running{background:#dbeafe;color:#1e40af}
+.jhist-chip.completed,.jhist-chip.done{background:#d1fae5;color:#065f46}
+.jhist-chip.failed{background:#fee2e2;color:#991b1b}
+.jhist-jid{font-family:monospace;font-size:.68rem;color:var(--dim)}
+.jhist-dl{display:inline-flex;align-items:center;gap:3px;padding:4px 10px;border-radius:var(--rx);background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-family:'Outfit',sans-serif;font-size:.7rem;font-weight:700;border:none;cursor:pointer}
+.jhist-dl:disabled{opacity:.35;cursor:not-allowed}
+/* image slider */
+.slider-section{background:linear-gradient(135deg,#0f0f1a,#1a1030);padding:48px 0 56px;margin:0}
+.slider-inner{max-width:860px;margin:0 auto;padding:0 20px}
+.slider-hdr{text-align:center;margin-bottom:28px}
+.slider-tag{display:inline-block;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:.72rem;font-weight:700;padding:4px 14px;border-radius:20px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
+.slider-title{font-size:1.5rem;font-weight:800;color:#fff;line-height:1.3}
+.slider-title span{background:linear-gradient(135deg,#a78bfa,#67e8f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.slider-sub{font-size:.85rem;color:rgba(255,255,255,.55);margin-top:8px}
+.slider-track-wrap{position:relative;overflow:hidden;border-radius:16px}
+.slider-track{display:flex;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.slider-slide{min-width:100%;aspect-ratio:1/1;max-height:460px;position:relative;overflow:hidden;border-radius:16px;background:#1a1030}
+.slider-slide img{width:100%;height:100%;object-fit:cover;display:block;border-radius:16px}
+.slider-slide .slide-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:rgba(255,255,255,.25);font-size:.82rem}
+.slider-slide .slide-placeholder span{font-size:2.5rem}
+.slider-dots{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.slider-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);border:none;cursor:pointer;transition:.3s;padding:0}
+.slider-dot.on{background:#a78bfa;width:22px;border-radius:4px}
+.slider-arrows{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 12px;pointer-events:none}
+.slider-arrow{width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.15);color:#fff;font-size:.9rem;cursor:pointer;display:flex;align-items:center;justify-content:center;pointer-events:all;transition:.2s;backdrop-filter:blur(4px)}
+.slider-arrow:hover{background:rgba(99,102,241,.7)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 .pulse-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 1.5s ease infinite}
 .pulse-dot.done{background:var(--green);animation:none}
@@ -260,7 +300,6 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-
 <header class="hdr">
   <a class="brand" href="index_6.html"><span>VinSnap</span></a>
   <div class="hnav">
-    <a href="index_6.html" class="back-btn">← Standard Mode</a>
     <span class="ubadge" id="ubadge">Sign in to use</span>
     <button class="auth-btn sign-in" id="authBtn" onclick="openModal()">Sign In</button>
   </div>
@@ -268,13 +307,83 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-
 
 
 <div class="tab-bar">
-  <button class="tab-btn active" id="tab-batch" onclick="switchTab('batch')">&#9889; Batch Processing</button>
-  <button class="tab-btn" id="tab-jobs" onclick="switchTab('jobs')">&#128203; My Jobs</button>
+  <button class="tab-btn active" id="tab-batch" onclick="switchTab('batch')">✨ Generate Photos</button>
+  <button class="tab-btn" id="tab-jobs" onclick="switchTab('jobs')">📋 My Jobs</button>
 </div>
 <div id="page-batch" class="tab-page active">
+
+<!-- ── AI PRODUCT PHOTOGRAPHY SHOWCASE SLIDER ── -->
+<div class="slider-section">
+  <div class="slider-inner">
+    <div class="slider-hdr">
+      <div class="slider-tag">✨ AI Product Photography Generator</div>
+      <div class="slider-title">Studio-quality photos.<br><span>Generated in minutes.</span></div>
+      <div class="slider-sub">Upload your product · We handle the rest · Professional results delivered to your inbox</div>
+    </div>
+    <div class="slider-track-wrap">
+      <div class="slider-track" id="sliderTrack">
+        <!-- Slide 1 -->
+        <div class="slider-slide">
+          <img src="https://storage.googleapis.com/vinsnap-batch-us/showcase/slide_01.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="AI Product Photo">
+          <div class="slide-placeholder" style="display:none"><span>🖼️</span>Your product photo here</div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="slider-slide">
+          <img src="https://storage.googleapis.com/vinsnap-batch-us/showcase/slide_02.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="AI Product Photo">
+          <div class="slide-placeholder" style="display:none"><span>🖼️</span>Your product photo here</div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="slider-slide">
+          <img src="https://storage.googleapis.com/vinsnap-batch-us/showcase/slide_03.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="AI Product Photo">
+          <div class="slide-placeholder" style="display:none"><span>🖼️</span>Your product photo here</div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="slider-slide">
+          <img src="https://storage.googleapis.com/vinsnap-batch-us/showcase/slide_04.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="AI Product Photo">
+          <div class="slide-placeholder" style="display:none"><span>🖼️</span>Your product photo here</div>
+        </div>
+        <!-- Slide 5 -->
+        <div class="slider-slide">
+          <img src="https://storage.googleapis.com/vinsnap-batch-us/showcase/slide_05.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="AI Product Photo">
+          <div class="slide-placeholder" style="display:none"><span>🖼️</span>Your product photo here</div>
+        </div>
+        <!-- Slide 6 -->
+        <div class="slider-slide">
+          <img src="https://storage.googleapis.com/vinsnap-batch-us/showcase/slide_06.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="AI Product Photo">
+          <div class="slide-placeholder" style="display:none"><span>🖼️</span>Your product photo here</div>
+        </div>
+        <!-- Slide 7 -->
+        <div class="slider-slide">
+          <img src="https://storage.googleapis.com/vinsnap-batch-us/showcase/slide_07.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="AI Product Photo">
+          <div class="slide-placeholder" style="display:none"><span>🖼️</span>Your product photo here</div>
+        </div>
+        <!-- Slide 8 -->
+        <div class="slider-slide">
+          <img src="https://storage.googleapis.com/vinsnap-batch-us/showcase/slide_08.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="AI Product Photo">
+          <div class="slide-placeholder" style="display:none"><span>🖼️</span>Your product photo here</div>
+        </div>
+        <!-- Slide 9 -->
+        <div class="slider-slide">
+          <img src="https://storage.googleapis.com/vinsnap-batch-us/showcase/slide_09.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="AI Product Photo">
+          <div class="slide-placeholder" style="display:none"><span>🖼️</span>Your product photo here</div>
+        </div>
+        <!-- Slide 10 -->
+        <div class="slider-slide">
+          <img src="https://storage.googleapis.com/vinsnap-batch-us/showcase/slide_10.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="AI Product Photo">
+          <div class="slide-placeholder" style="display:none"><span>🖼️</span>Your product photo here</div>
+        </div>
+      </div>
+      <div class="slider-arrows">
+        <button class="slider-arrow" onclick="sliderMove(-1)">‹</button>
+        <button class="slider-arrow" onclick="sliderMove(1)">›</button>
+      </div>
+    </div>
+    <div class="slider-dots" id="sliderDots"></div>
+  </div>
+</div>
 <main class="pg" id="mainForm">
-  <div class="ptitle">⚡ <span>Batch Processing</span></div>
-  <div class="psub">Upload up to 10 product images — generated images will be emailed to you in ~30 minutes.</div>
+  <div class="ptitle">✨ <span>AI Product Photography</span></div>
+  <div class="psub">Upload up to 10 product images — professionally generated lifestyle photos will be emailed to you in ~30 minutes.</div>
 
   <div class="cbanner hidden" id="countBanner">
     <div><div class="cnum" id="countNum">0</div><div class="clbl">images will be generated</div></div>
@@ -727,15 +836,13 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-
   <!-- EMAIL -->
   <div class="card">
     <div class="ctitle">📧 Email Delivery</div>
-    <label class="lbl">Deliver results to</label>
-    <input class="inp" id="emailDisp" type="email" placeholder="Sign in to see your email" oninput="checkReady()">
-    <div style="font-size:.75rem;color:var(--dim);margin-top:6px">
-      Pre-filled with your login email — change to any address you want the photos delivered to.
-    </div>
+    <label class="lbl">Send results to this email</label>
+    <input class="inp" id="emailDisp" type="email" placeholder="Enter email address for delivery" oninput="checkReady()">
+    <div style="font-size:.75rem;color:var(--dim);margin-top:6px">📬 Your AI-generated photos will be emailed here when ready (~30 min). You can use a different email than your login.</div>
   </div>
 
   <button class="sbtn" id="submitBtn" onclick="doSubmit()" disabled>
-    <span id="submitLbl">⚡ Submit Batch</span>
+    <span id="submitLbl">✨ Generate Photos</span>
   </button>
   <div id="submitErr" style="color:var(--red);font-size:.82rem;margin-top:10px;text-align:center"></div>
 </main>
@@ -746,10 +853,10 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-
   <!-- Submitted card -->
   <div class="scrd" style="margin-bottom:16px">
     <div class="sico">✅</div>
-    <div class="stitle">Batch Submitted!</div>
+    <div class="stitle">Photos Submitted!</div>
     <div class="ssub">
       <strong id="sCount">0</strong> images queued for <strong id="sEmail"></strong>.<br>
-      Results will be emailed when complete.
+      Your AI-generated photos will be emailed when ready.
     </div>
     <div class="sjob" id="sJobId"></div>
   </div>
@@ -784,12 +891,14 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-
       <div class="detail-item"><span class="detail-lbl">Images</span><span class="detail-val" id="dImages">—</span></div>
       <div class="detail-item"><span class="detail-lbl">Types</span><span class="detail-val" id="dTypes">—</span></div>
       <div class="detail-item"><span class="detail-lbl">Submitted</span><span class="detail-val" id="dCreated">—</span></div>
+      <div class="detail-item" style="grid-column:1/-1"><span class="detail-lbl">📧 Delivery Email</span><span class="detail-val" id="dEmail" style="color:var(--accent);font-size:.82rem">—</span></div>
     </div>
 
     <!-- Done: image links -->
     <div id="doneSection" style="display:none">
-      <div style="font-size:.85rem;font-weight:600;color:var(--green);margin:14px 0 10px">
-        ✅ Generation complete — <span id="doneCount">0</span> images ready
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin:14px 0 10px">
+        <div style="font-size:.85rem;font-weight:600;color:var(--green)">✅ Generation complete — <span id="doneCount">0</span> images ready</div>
+        <button class="dl-all-btn" onclick="downloadAllCurrent()">⬇ Download All</button>
       </div>
       <div id="imageLinks" style="display:flex;flex-direction:column;gap:6px"></div>
     </div>
@@ -797,7 +906,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-
     <!-- Failed -->
     <div id="failedSection" style="display:none">
       <div style="font-size:.85rem;color:var(--red);margin-top:14px">
-        ❌ Batch job failed. Please try submitting again.
+        ❌ Generation failed. Please try submitting again.
       </div>
     </div>
 
@@ -807,9 +916,21 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-
         🔄 Refresh Now
       </button>
       <button class="newbtn" onclick="resetAll()" style="margin:0;padding:8px 18px;font-size:.82rem;border-color:var(--dim);color:var(--dim)">
-        + New Batch
+        + New Job
       </button>
     </div>
+  </div>
+
+  <!-- Submitted Jobs history — persists across New Job clicks -->
+  <div class="card jhist-wrap" id="jobHistWrap" style="display:none">
+    <div class="jhist-title">
+      📋 Submitted Jobs
+      <span id="jobHistCount" style="background:var(--accent);color:#fff;font-size:.68rem;padding:2px 8px;border-radius:20px;font-weight:700"></span>
+    </div>
+    <table class="jhist-table">
+      <thead><tr><th>Job ID</th><th>Product</th><th>Photos</th><th>Submitted</th><th>Status</th><th></th></tr></thead>
+      <tbody id="jobHistBody"></tbody>
+    </table>
   </div>
 
 </div>
@@ -819,7 +940,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-
 <div id="page-jobs" class="tab-page">
 <div class="pg">
   <div class="ptitle" style="margin-bottom:4px">&#128203; <span style="background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent">My Jobs</span></div>
-  <div class="psub">All your batches — current and past. Downloads stay available as long as the job exists.</div>
+  <div class="psub">All your AI photo generation jobs — current and past. Downloads stay available as long as the job exists.</div>
   <div class="j-toolbar">
     <span id="jCount" style="font-size:.82rem;color:var(--dim);font-weight:500"></span>
     <button class="j-rbtn" onclick="loadJobs()"><span id="jRefIco">&#128260;</span> Refresh</button>
@@ -829,7 +950,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-
   <div id="jEmpty" class="j-empty" style="display:none">
     <div style="font-size:2.5rem;margin-bottom:10px">&#128444;</div>
     <div style="font-weight:700;margin-bottom:6px;color:var(--dim2)">No jobs yet</div>
-    <div style="font-size:.85rem">Submit a batch and all your jobs will appear here.</div>
+    <div style="font-size:.85rem">Generate your first AI product photos and all your jobs will appear here.</div>
   </div>
 </div>
 </div>
@@ -894,7 +1015,8 @@ sb.auth.onAuthStateChange((_e, session) => {
   if (user) {
     btn.textContent = 'Sign Out'; btn.onclick = doSignOut; btn.className = 'auth-btn sign-out';
     badge.textContent = user.email.split('@')[0];
-    emailDisp.value = user.email;
+    // Pre-fill delivery email only if it's currently empty
+    if (!emailDisp.value.trim()) emailDisp.value = user.email;
     closeModal();
     // ── Restore active job tracking if the user had one running ──
     const saved = localStorage.getItem('vs_active_job');
@@ -902,7 +1024,7 @@ sb.auth.onAuthStateChange((_e, session) => {
       try {
         const j = JSON.parse(saved);
         if (j.jobId && j.email === user.email) {
-          showStatusPanel(j.jobId, j.totalImages, user.email, /*restore=*/true);
+          showStatusPanel(j.jobId, j.totalImages, user.email, /*restore=*/true, j.productName||'');
         }
       } catch(e) { localStorage.removeItem('vs_active_job'); }
     }
@@ -1061,11 +1183,14 @@ function selectLoc(el) {
 
 // ══ SUBMIT ═══════════════════════════════════════════════════════════
 function checkReady() {
+  const deliveryEmail = (document.getElementById('emailDisp').value || '').trim();
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(deliveryEmail);
   const ok = user &&
     uploads.length > 0 &&
     document.getElementById('catSel').value &&
     getTypes().length > 0 &&
-    document.getElementById('productName').value.trim();
+    document.getElementById('productName').value.trim() &&
+    emailValid;
   document.getElementById('submitBtn').disabled = !ok;
 }
 
@@ -1075,11 +1200,13 @@ async function doSubmit() {
   const cat   = document.getElementById('catSel').value;
   const sub   = document.getElementById('subSel').value;
   const types = getTypes();
+  const deliveryEmail = (document.getElementById('emailDisp').value || '').trim();
   document.getElementById('submitErr').textContent = '';
   if (!uploads.length) { showErr('Please upload at least one image.'); return; }
   if (!cat)            { showErr('Please select a category.'); return; }
   if (!types.length)   { showErr('Please select at least one image type.'); return; }
   if (!name)           { showErr('Please enter a product name.'); return; }
+  if (!deliveryEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(deliveryEmail)) { showErr('Please enter a valid delivery email address.'); return; }
   if (genMode==='custom' && !locationVariant) { showErr('Please select a location in Custom mode.'); return; }
 
   const btn = document.getElementById('submitBtn');
@@ -1087,7 +1214,7 @@ async function doSubmit() {
 
   const config = {
     productName: name, category: cat, subcategory: sub,
-    email: document.getElementById('emailDisp').value.trim() || user.email, mode: genMode,
+    email: deliveryEmail, mode: genMode,
     avatarId:        genMode==='custom' ? avatarId        : 'dynamic',
     avatarCountry:   genMode==='custom' ? avatarCountry   : 'india',
     locationVariant: genMode==='custom' ? 'dynamic'       : 'dynamic',
@@ -1127,12 +1254,12 @@ async function doSubmit() {
     await respB.json();
 
     setSubmitStep('Submitted ✓', 100);
-    showStatusPanel(jobId, uploads.length * types.length, user.email);
+    showStatusPanel(jobId, uploads.length * types.length, deliveryEmail, false, name);
 
   } catch(e) {
     showErr('Submission failed — ' + e.message);
     btn.disabled = false;
-    document.getElementById('submitLbl').innerHTML = '⚡ Submit Batch';
+    document.getElementById('submitLbl').innerHTML = '✨ Generate Photos';
   }
 }
 
@@ -1169,10 +1296,9 @@ let _currentJobId = null;
 let _pollTimer    = null;
 const POLL_INTERVAL = 30000;
 
-function showStatusPanel(jobId, totalImages, email, restore=false) {
+function showStatusPanel(jobId, totalImages, email, restore=false, productName='') {
   _currentJobId = jobId;
-  // Persist so job survives page reload / sign-out+sign-in
-  try { localStorage.setItem('vs_active_job', JSON.stringify({ jobId, totalImages, email })); } catch(e) {}
+  try { localStorage.setItem('vs_active_job', JSON.stringify({ jobId, totalImages, email, productName })); } catch(e) {}
   document.getElementById('mainForm').style.display    = 'none';
   document.getElementById('successPanel').style.display = 'block';
   document.getElementById('sCount').textContent  = totalImages;
@@ -1180,8 +1306,11 @@ function showStatusPanel(jobId, totalImages, email, restore=false) {
   document.getElementById('sJobId').textContent  = 'Job ID: ' + jobId;
   document.getElementById('dJobId').textContent  = jobId;
   document.getElementById('detailGrid').style.display = 'grid';
+  // Show the delivery email in the detail grid
+  const dEmailEl = document.getElementById('dEmail');
+  if (dEmailEl) dEmailEl.textContent = email;
   if (!restore) setStatusChip('pending');
-  // Small delay before first poll to avoid race where Supabase row isn't written yet
+  addJobToHistory(jobId, totalImages, productName);
   setTimeout(() => startPolling(), restore ? 0 : 4000);
 }
 
@@ -1241,6 +1370,7 @@ function applyJobStatus(job) {
     clearInterval(_pollTimer);
     try { localStorage.removeItem('vs_active_job'); } catch(e) {}
     document.getElementById('failedSection').style.display = 'block';
+    updateHistoryRow(job.batch_job_id || _currentJobId, 'failed', []);
   } else {
     // pending / running — keep polling
     prog.style.display = 'block';
@@ -1276,8 +1406,6 @@ function showDoneSection(job) {
   const section = document.getElementById('doneSection');
   section.style.display = 'block';
 
-  // fn_output writes to "output_images" column as a JSON array
-  // Each entry has: { public_url, shot_type, image_index } or similar
   let images = [];
   try {
     const raw = job.output_images || job.oci_image_urls || '[]';
@@ -1286,10 +1414,10 @@ function showDoneSection(job) {
 
   const successImages = images.filter(img => img && (img.public_url || img.url || img.publicUrl || img.ociUrl));
   document.getElementById('doneCount').textContent = successImages.length;
+  _currentImages = successImages;
 
   const container = document.getElementById('imageLinks');
   container.innerHTML = '';
-
   const typeLabels = { hero:'Hero', lifestyle1:'Lifestyle 1', lifestyle2:'Lifestyle 2', lifestyle3:'Lifestyle 3' };
 
   if (successImages.length === 0) {
@@ -1302,31 +1430,40 @@ function showDoneSection(job) {
     const shotType = img.shot_type  || img.type || img.shotType || '';
     const imgIdx   = img.image_index != null ? img.image_index : (img.index != null ? img.index : i);
     if (!url) return;
-    const a = document.createElement('a');
-    a.href = url; a.target = '_blank'; a.className = 'img-link';
-    const label = `Image ${parseInt(imgIdx)+1}${shotType ? ' — ' + (typeLabels[shotType] || shotType) : ''}`;
-    a.innerHTML = `<div><div class="img-link-label">${label}</div><div class="img-link-sub">${url.split('/').pop()}</div></div><span style="color:var(--accent);font-size:.85rem;flex-shrink:0">↗ Open</span>`;
-    container.appendChild(a);
+    const fname = `vinsnap_${String(parseInt(imgIdx)+1).padStart(3,'0')}_${shotType||'img'}.jpg`;
+    const label = `Image ${parseInt(imgIdx)+1}${shotType ? ' — ' + (typeLabels[shotType]||shotType) : ''}`;
+    const row = document.createElement('div');
+    row.className = 'img-link';
+    row.innerHTML = `<div><div class="img-link-label">${label}</div><div class="img-link-sub">${url.split('/').pop()}</div></div>`
+      + `<button class="dl-btn" onclick="blobDownload('${url}','${fname}',this)">⬇ Download</button>`;
+    container.appendChild(row);
   });
+
+  // Update the history row to completed
+  updateHistoryRow(job.batch_job_id || _currentJobId, job.status || 'completed', successImages);
 }
 
 function resetAll() {
   clearInterval(_pollTimer);
   _currentJobId = null;
+  _currentImages = [];
+  // _jobHistory intentionally NOT cleared — survives New Job clicks
   try { localStorage.removeItem('vs_active_job'); } catch(e) {}
   uploads=[]; avatarId='dynamic'; avatarCountry='india'; locationVariant=''; genMode='dynamic';
   document.getElementById('thumbGrid').innerHTML = '';
   document.getElementById('productName').value   = '';
   document.getElementById('catSel').value        = '';
   document.getElementById('subSel').innerHTML    = '<option value="">Select subcategory…</option>';
+  // Restore delivery email to logged-in user's email
+  if (user) document.getElementById('emailDisp').value = user.email;
   document.querySelectorAll('.tycb input').forEach(cb=>{cb.checked=true; cb.closest('.tycb').classList.add('on');});
   setMode('dynamic');
   document.getElementById('countBanner').classList.add('hidden');
   document.getElementById('mainForm').style.display    = 'block';
   document.getElementById('successPanel').style.display = 'none';
-  document.getElementById('submitLbl').innerHTML = '⚡ Submit Batch';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById('submitLbl').innerHTML = '✨ Generate Photos';
   document.getElementById('submitErr').textContent = '';
-  // Reset status UI
   document.getElementById('statusChip').className = 'status-chip pending';
   document.getElementById('progTrack').style.display = 'none';
   document.getElementById('progBar').style.width = '0%';
@@ -1335,6 +1472,96 @@ function resetAll() {
   document.getElementById('detailGrid').style.display = 'none';
   document.getElementById('imageLinks').innerHTML = '';
   checkReady();
+}
+
+// ══ BLOB DOWNLOAD ════════════════════════════════════════════════════
+let _currentImages = [];
+
+async function blobDownload(url, fname, btnEl) {
+  if (btnEl) { btnEl.textContent = '⏳'; btnEl.disabled = true; }
+  try {
+    const resp = await fetch(url);
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const blob = await resp.blob();
+    const burl = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = burl; a.download = fname;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(burl), 5000);
+    if (btnEl) { btnEl.textContent = '✓ Saved'; btnEl.style.background = '#059669'; }
+  } catch(e) {
+    if (btnEl) { btnEl.textContent = '⬇ Download'; btnEl.disabled = false; }
+    toast('Download failed — ' + e.message);
+  }
+}
+
+function downloadAllCurrent() {
+  if (!_currentImages.length) { toast('No images ready'); return; }
+  _blobQueue(_currentImages, _currentJobId || 'job');
+}
+
+function _blobQueue(images, jobSuffix) {
+  const valid = images.filter(img => img.public_url || img.publicUrl || img.url || img.ociUrl);
+  if (!valid.length) { toast('No images to download'); return; }
+  toast(`Downloading ${valid.length} images…`);
+  let i = 0;
+  async function next() {
+    if (i >= valid.length) { toast(`${valid.length} downloads complete ✓`, 4000); return; }
+    const img = valid[i];
+    const url = img.public_url || img.publicUrl || img.url || img.ociUrl || '';
+    const shotType = img.shot_type || img.type || img.shotType || '';
+    const imgIdx   = img.image_index != null ? img.image_index : i;
+    const fname    = `vinsnap_${String(jobSuffix).slice(-6)}_${String(parseInt(imgIdx)+1).padStart(3,'0')}_${shotType||'img'}.jpg`;
+    try {
+      const r = await fetch(url); const blob = await r.blob();
+      const burl = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = burl; a.download = fname;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(burl), 5000);
+    } catch(e) { console.warn('dl failed', url, e); }
+    i++; setTimeout(next, 500);
+  }
+  next();
+}
+
+// ══ JOB HISTORY ══════════════════════════════════════════════════════
+let _jobHistory = [];
+
+function addJobToHistory(jobId, totalImages, productName) {
+  if (_jobHistory.find(j => j.jobId === jobId)) return;
+  _jobHistory.unshift({ jobId, productName: productName||'—', totalImages, submittedAt: new Date(), status: 'pending', images: [] });
+  _renderJobHistory();
+}
+
+function updateHistoryRow(jobId, status, images) {
+  const e = _jobHistory.find(j => j.jobId === jobId);
+  if (!e) return;
+  e.status = status;
+  if (images && images.length) e.images = images;
+  _renderJobHistory();
+}
+
+function _renderJobHistory() {
+  if (!_jobHistory.length) return;
+  document.getElementById('jobHistWrap').style.display = 'block';
+  document.getElementById('jobHistCount').textContent = _jobHistory.length;
+  const body = document.getElementById('jobHistBody');
+  body.innerHTML = '';
+  const statusLabel = { pending:'⏳ Pending', running:'⚙️ Running', completed:'✅ Done',
+    completed_with_errors:'✅ Done', done:'✅ Done', failed:'❌ Failed' };
+  const chipCls = s => ['completed','completed_with_errors','done'].includes(s) ? 'completed' : s;
+  _jobHistory.forEach(j => {
+    const hasDl = ['completed','completed_with_errors','done'].includes(j.status) && j.images.length;
+    const time  = j.submittedAt ? j.submittedAt.toLocaleString([],{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}) : '—';
+    const tr = document.createElement('tr');
+    tr.innerHTML =
+      `<td><span class="jhist-jid">${j.jobId.slice(-14)}</span></td>`
+    + `<td style="font-weight:600;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${j.productName}">${j.productName}</td>`
+    + `<td>${j.totalImages}</td>`
+    + `<td style="white-space:nowrap;font-size:.73rem">${time}</td>`
+    + `<td><span class="jhist-chip ${chipCls(j.status)}">${statusLabel[j.status]||j.status}</span></td>`
+    + `<td><button class="jhist-dl" ${hasDl?'':'disabled'} onclick="_blobQueue(_jobHistory.find(x=>x.jobId==='${j.jobId}').images,'${j.jobId}')">⬇ All</button></td>`;
+    body.appendChild(tr);
+  });
 }
 
 // ══ TOAST ════════════════════════════════════════════════════════════
@@ -1351,7 +1578,15 @@ function switchTab(t) {
     document.getElementById('tab-'+n).classList.toggle('active', n===t);
     document.getElementById('page-'+n).classList.toggle('active', n===t);
   });
-  if (t === 'jobs') loadJobs();
+  if (t === 'jobs') {
+    loadJobs();
+  } else if (t === 'batch') {
+    // When returning to batch tab, show the correct sub-panel:
+    // if there's an active/tracked job → show status panel; else show the form
+    const hasActiveJob = !!_currentJobId;
+    document.getElementById('mainForm').style.display    = hasActiveJob ? 'none' : 'block';
+    document.getElementById('successPanel').style.display = hasActiveJob ? 'block' : 'none';
+  }
 }
 
 // ══ JOBS PAGE ════════════════════════════════════════════════════════
@@ -1369,7 +1604,7 @@ function loadJobs() {
   document.getElementById('jList').innerHTML = '';
   document.getElementById('jEmpty').style.display = 'none';
 
-  fetch(SB_URL + '/rest/v1/batch_jobs?email=eq.' + encodeURIComponent(user.email)
+  fetch(SB_URL + '/rest/v1/batch_jobs?user_email=eq.' + encodeURIComponent(user.email)
         + '&order=created_at.desc&limit=100',
     { headers: { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY } })
   .then(r => r.json())
@@ -1491,19 +1726,11 @@ function jToggle(jobId) {
 
 function jDlAll(jobId, e) {
   if (e) e.preventDefault();
-  toast('Starting downloads...');
   const el = document.getElementById('jimgs-' + jobId);
   if (!el) return;
   const links = el.querySelectorAll('.j-save');
-  let i = 0;
-  function next() {
-    if (i >= links.length) { toast(links.length + ' downloads started'); return; }
-    const a = document.createElement('a');
-    a.href = links[i].href; a.download = 'vinsnap_' + (i+1) + '.jpg'; a.target = '_blank';
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    i++; setTimeout(next, 400);
-  }
-  next();
+  const imgs = Array.from(links).map((a, i) => ({ public_url: a.href, image_index: i, shot_type: '' }));
+  _blobQueue(imgs, jobId);
 }
 
 function jEsc(s) {
