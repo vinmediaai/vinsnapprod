@@ -1092,21 +1092,98 @@ let genMode        = 'dynamic';
 let _userCredits   = null; // { credits_remaining, credits_reserved, plan_name, expires_at }
 
 // ══ SUBCATEGORY MAP ══════════════════════════════════════════════════
+const SHOT_LABELS = {
+  hero:       'Hero',
+  lifestyle1: 'Lifestyle 1',
+  lifestyle2: 'Lifestyle 2',
+  lifestyle3: 'Lifestyle 3',
+};
+
 const SUBCATS = {
-  womens_fashion:['womens_ethnic_saree','womens_ethnic_lehenga','womens_ethnic_kurti','womens_western_dress','womens_western_top','womens_western_jeans','womens_western_co-ord'],
-  mens_fashion:  ['mens_formal_shirt','mens_casual_shirt','mens_tshirt','mens_trousers','mens_jeans','mens_kurta','mens_suit'],
-  kids_fashion:  ['kids_top','kids_dress','kids_tshirt','kids_ethnic','kids_winter'],
-  footwear:      ['footwear_sneakers','footwear_sandals','footwear_heels','footwear_flats','footwear_boots','footwear_ethnic'],
-  jewellery:     ['jewellery_necklace','jewellery_earring','jewellery_ring_womens','jewellery_ring_mens','jewellery_bangle','jewellery_bracelet','jewellery_set','jewellery_mens_chain','jewellery_anklet','jewellery_maang_tikka'],
-  accessories:   ['acc_handbag','acc_sling_bag','acc_backpack','acc_wallet','acc_belt','acc_watch','acc_smartwatch','acc_sunglasses','acc_scarf'],
-  home_kitchen:  ['home_cookware','home_bakeware','home_storage','home_dinnerware','home_glassware','home_appliance'],
-  home_decor:    ['home_bedsheet','home_cushion','home_curtain','home_comforter','home_carpet','home_wall_art','home_candle','home_led_lights'],
-  beauty:        ['beauty_skincare','beauty_haircare','beauty_makeup','beauty_perfume','skincare_baby'],
-  electronics:   ['electronics_earbuds','electronics_watch','electronics_smartwatch','electronics_phone','electronics_tablet','electronics_laptop','electronics_camera'],
-  health:        ['health_fitness','health_massager','health_monitor','health_supplement','health_personal_care'],
-  toys:          ['toys_soft','toys_building','toys_action','rideon','toys_educational'],
-  stationery:    ['stationery_pen','stationery_notebook','stationery_art','stationery_school'],
-  other:         []
+  womens_fashion:[
+    'womens_saree','womens_kurti','womens_kurta_set','womens_suit_dress_material',
+    'womens_lehenga','womens_blouse_dupatta','womens_abaya','womens_petticoat',
+    'womens_top_tunic','womens_dress_gown','womens_coord_set',
+    'womens_jeans_leggings','womens_activewear','womens_maternity',
+    'womens_swimwear','womens_innerwear','womens_sleepwear'
+  ],
+  mens_fashion:[
+    'mens_tshirt','mens_casual_shirt','mens_jeans_chinos',
+    'mens_track_pants','mens_sweatshirt_hoodie','mens_jacket_coat',
+    'mens_rainwear','mens_formal_shirt','mens_formal_trousers',
+    'mens_suit_blazer','mens_kurta','mens_kurta_set',
+    'mens_sherwani','mens_dhoti_mundu','mens_activewear',
+    'mens_swimwear','mens_nightwear','mens_innerwear','mens_socks'
+  ],
+  kids_fashion:[
+    'kids_infant_newborn','kids_baby_rompers',
+    'kids_boys_set','kids_girls_set','kids_ethnic',
+    'kids_school_uniform','kids_activewear','kids_winter',
+    'kids_combo_set','kids_swimwear'
+  ],
+  footwear:[
+    'footwear_womens_heels','footwear_womens_flats',
+    'footwear_womens_ethnic','footwear_mens_casual',
+    'footwear_mens_formal','footwear_mens_sports',
+    'footwear_mens_ethnic','footwear_sneakers',
+    'footwear_boots','footwear_flipflops',
+    'footwear_kids','footwear_sports_running',
+    'footwear_orthopaedic','footwear_rain_boots','footwear_school_shoes'
+  ],
+  jewellery:[
+    'jewellery_necklace','jewellery_earring',
+    'jewellery_set','jewellery_bangle','jewellery_bracelet',
+    'jewellery_anklet','jewellery_ring','jewellery_pendant',
+    'jewellery_maang_tikka','jewellery_nose_pin','jewellery_toe_ring',
+    'jewellery_brooch','jewellery_mens_chain'
+  ],
+  accessories:[
+    'acc_handbag','acc_sling_bag','acc_backpack',
+    'acc_tote_bag','acc_luggage','acc_watch',
+    'acc_smartwatch','acc_sunglasses','acc_hair_accessories',
+    'acc_caps_hats','acc_scarf'
+  ],
+  home_kitchen:[
+    'home_cookware','home_bakeware','home_storage',
+    'home_dinnerware','home_glassware','home_appliance'
+  ],
+  home_decor:[
+    'home_bedsheet','home_cushion','home_curtain','home_comforter',
+    'home_carpet','home_wall_art','home_candle','home_led_lights'
+  ],
+  beauty:[
+    'beauty_moisturizer','beauty_face_wash','beauty_sunscreen',
+    'beauty_eye_cream','beauty_lip_care','beauty_body_lotion',
+    'beauty_baby_skincare','beauty_mens_skincare',
+    'beauty_haircare','beauty_makeup','beauty_nail_care',
+    'beauty_perfume','beauty_grooming_tools','beauty_beard_care'
+  ],
+  electronics:[
+    'electronics_earbuds','electronics_speaker',
+    'electronics_phone_case','electronics_charger',
+    'electronics_power_bank','electronics_cable',
+    'electronics_popsocket','electronics_watch',
+    'electronics_smartwatch','electronics_laptop_accessories',
+    'electronics_keyboard_mouse','electronics_camera_accessories',
+    'electronics_smart_home','electronics_gaming','electronics_router'
+  ],
+  health:[
+    'health_yoga_fitness','health_gym_equipment',
+    'health_supplement','health_monitor','health_glucometer',
+    'health_massager','health_personal_care',
+    'health_first_aid','health_baby_care'
+  ],
+  toys:[
+    'toys_outdoor_sports','toys_educational','toys_electric_rc',
+    'toys_indoor_pretend','toys_soft','toys_board_games',
+    'toys_building','toys_action','toys_art_craft','toys_puzzles'
+  ],
+  stationery:[
+    'stationery_school_bag','stationery_notebook','stationery_pen',
+    'stationery_art','stationery_lunch_box','stationery_water_bottle',
+    'stationery_desk_organiser','stationery_calculator','stationery_planner'
+  ],
+  other:[]
 };
 
 // ══ SUBCATEGORY LABEL OVERRIDES ══════════════════════════════════════
@@ -1180,6 +1257,137 @@ const SUBCAT_LABELS = {
   'footwear_boots':         "🥾 Boots",
   'footwear_ethnic':        "👡 Ethnic Footwear",
   'footwear_kids':          "👟 Kids Footwear",
+
+  // ── WOMENS FASHION ──
+  'womens_saree':               "🥻 Saree",
+  'womens_kurti':               "👘 Kurti",
+  'womens_kurta_set':           "👘 Kurta Set",
+  'womens_suit_dress_material': "👗 Suit & Dress Material",
+  'womens_lehenga':             "👗 Lehenga & Choli",
+  'womens_blouse_dupatta':      "👗 Blouse & Dupatta",
+  'womens_abaya':               "🧕 Abaya & Ethnic Jacket",
+  'womens_petticoat':           "👗 Petticoat & Ethnic Bottom",
+  'womens_top_tunic':           "👚 Top, Tunic & T-Shirt",
+  'womens_dress_gown':          "👗 Dress & Gown",
+  'womens_coord_set':           "👗 Co-ord Set",
+  'womens_jeans_leggings':      "👖 Jeans, Leggings & Palazzo",
+  'womens_activewear':          "🏃 Activewear & Yoga Wear",
+  'womens_maternity':           "🤰 Maternity Wear",
+  'womens_swimwear':            "👙 Swimwear",
+  'womens_innerwear':           "🩱 Bras & Innerwear",
+  'womens_sleepwear':           "😴 Night Suits & Sleepwear",
+
+  // ── MENS FASHION ──
+  'mens_tshirt':                "👕 T-Shirt",
+  'mens_casual_shirt':          "👔 Casual Shirt",
+  'mens_jeans_chinos':          "👖 Jeans & Chinos",
+  'mens_track_pants':           "🩳 Track Pants & Joggers",
+  'mens_sweatshirt_hoodie':     "🧥 Sweatshirt & Hoodie",
+  'mens_jacket_coat':           "🧥 Jacket & Coat",
+  'mens_rainwear':              "🌧 Rainwear",
+  'mens_formal_shirt':          "👔 Formal Shirt",
+  'mens_formal_trousers':       "👔 Formal Trousers",
+  'mens_suit_blazer':           "🤵 Suit & Blazer",
+  'mens_kurta':                 "🧥 Kurta",
+  'mens_kurta_set':             "🧥 Kurta Set",
+  'mens_sherwani':              "🤵 Sherwani",
+  'mens_dhoti_mundu':           "🧣 Dhoti & Mundu",
+  'mens_activewear':            "🏋 Activewear & Gym Wear",
+  'mens_swimwear':              "🩱 Swimwear",
+  'mens_nightwear':             "😴 Nightwear & Lounge Wear",
+  'mens_innerwear':             "🩲 Innerwear & Vests",
+  'mens_socks':                 "🧦 Socks",
+
+  // ── KIDS FASHION ──
+  'kids_infant_newborn':        "👶 Infant & Newborn (0–12m)",
+  'kids_baby_rompers':          "👶 Baby Dresses & Rompers",
+  'kids_boys_set':              "👦 Boys' Clothing Sets",
+  'kids_girls_set':             "👧 Girls' Clothing Sets",
+  'kids_ethnic':                "🎎 Kids' Ethnic Wear",
+  'kids_school_uniform':        "🏫 School Uniform",
+  'kids_activewear':            "🏃 Kids' Activewear",
+  'kids_winter':                "🧥 Winter Wear & Jackets",
+  'kids_combo_set':             "🎁 Combo Set",
+  'kids_swimwear':              "🩱 Kids' Swimwear",
+
+  // ── FOOTWEAR ──
+  'footwear_womens_heels':      "👠 Women's Heels & Wedges",
+  'footwear_womens_flats':      "🥿 Women's Flats & Sandals",
+  'footwear_womens_ethnic':     "👡 Women's Ethnic Footwear",
+  'footwear_mens_casual':       "👞 Men's Casual Shoes",
+  'footwear_mens_formal':       "👞 Men's Formal Shoes",
+  'footwear_mens_sports':       "👟 Men's Sports Shoes",
+  'footwear_mens_ethnic':       "🥿 Men's Ethnic Footwear",
+  'footwear_sneakers':          "👟 Sneakers",
+  'footwear_boots':             "🥾 Boots & Ankle Boots",
+  'footwear_flipflops':         "🩴 Flip-Flops & Slippers",
+  'footwear_sports_running':    "👟 Sports & Running Shoes",
+  'footwear_orthopaedic':       "👞 Orthopaedic & Comfort",
+  'footwear_rain_boots':        "🥾 Rain Boots",
+  'footwear_school_shoes':      "👟 School Shoes",
+
+  // ── JEWELLERY ──
+  'jewellery_ring':             "💍 Ring",
+  'jewellery_pendant':          "📿 Pendant",
+  'jewellery_nose_pin':         "💎 Nose Pin",
+  'jewellery_toe_ring':         "💍 Toe Ring",
+  'jewellery_brooch':           "📌 Brooch & Pin",
+
+  // ── ACCESSORIES ──
+  'acc_tote_bag':               "🛍 Tote Bag",
+  'acc_luggage':                "🧳 Luggage & Trolley Bag",
+  'acc_hair_accessories':       "💇 Hair Accessories",
+  'acc_caps_hats':              "🧢 Caps & Hats",
+
+  // ── BEAUTY ──
+  'beauty_moisturizer':         "🧴 Moisturizer & Serum",
+  'beauty_face_wash':           "🧼 Face Wash & Mask",
+  'beauty_sunscreen':           "☀️ Sunscreen",
+  'beauty_eye_cream':           "👁 Eye Cream",
+  'beauty_lip_care':            "💋 Lip Balm & Lip Care",
+  'beauty_body_lotion':         "🧴 Body Lotion & Body Wash",
+  'beauty_baby_skincare':       "👶 Baby Skincare",
+  'beauty_mens_skincare':       "🧖 Men's Skincare",
+  'beauty_nail_care':           "💅 Nail Care",
+  'beauty_grooming_tools':      "✂️ Grooming Tools & Trimmer",
+  'beauty_beard_care':          "🧔 Beard Care",
+
+  // ── ELECTRONICS ──
+  'electronics_speaker':            "🔊 Bluetooth Speaker",
+  'electronics_phone_case':         "📱 Phone Case & Cover",
+  'electronics_charger':            "🔌 Charger & Adapter",
+  'electronics_power_bank':         "🔋 Power Bank",
+  'electronics_cable':              "🔌 USB Cable",
+  'electronics_popsocket':          "📱 Pop Socket & Stand",
+  'electronics_laptop_accessories': "💻 Laptop & Tablet Accessories",
+  'electronics_keyboard_mouse':     "⌨️ Keyboard & Mouse",
+  'electronics_camera_accessories': "📷 Camera Accessories",
+  'electronics_smart_home':         "🏠 Smart Home Device",
+  'electronics_gaming':             "🎮 Gaming Accessories",
+  'electronics_router':             "📡 Router & Networking",
+
+  // ── HEALTH ──
+  'health_yoga_fitness':        "🧘 Yoga & Fitness Equipment",
+  'health_gym_equipment':       "🏋 Gym Equipment & Weights",
+  'health_glucometer':          "🩸 Glucometer",
+  'health_first_aid':           "🩹 First Aid",
+  'health_baby_care':           "👶 Baby Health & Care",
+
+  // ── TOYS ──
+  'toys_outdoor_sports':        "⚽ Outdoor & Sports Toys",
+  'toys_electric_rc':           "🚗 Electric & RC Toys",
+  'toys_indoor_pretend':        "🎭 Indoor & Pretend Play",
+  'toys_board_games':           "🎲 Board Games & Card Games",
+  'toys_art_craft':             "🎨 Art & Craft Kits",
+  'toys_puzzles':               "🧩 Puzzles",
+
+  // ── STATIONERY ──
+  'stationery_school_bag':      "🎒 School Bag & Backpack",
+  'stationery_lunch_box':       "🍱 Lunch Box",
+  'stationery_water_bottle':    "🍶 Water Bottle",
+  'stationery_desk_organiser':  "🗂 Desk Organiser",
+  'stationery_calculator':      "🔢 Calculator",
+  'stationery_planner':         "📅 Planner",
 };
 sb.auth.onAuthStateChange((_e, session) => {
   user = session?.user || null;
