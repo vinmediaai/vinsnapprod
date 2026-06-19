@@ -205,8 +205,8 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-
 /* ── FEEDBACK MODAL ── */
 .fb-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(5px);z-index:2000;display:none;align-items:center;justify-content:center}
 .fb-overlay.open{display:flex}
-.fb-card{background:#fff;border-radius:20px;padding:32px 28px;width:min(460px,94vw);position:relative;box-shadow:0 24px 60px rgba(0,0,0,.2);animation:fbSlideIn .3s ease}
-@keyframes fbSlideIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fb-card{background:#fff;border-radius:20px;padding:32px 28px;width:min(460px,94vw);position:relative;box-shadow:0 24px 60px rgba(0,0,0,.2);animation:fbIn .3s ease}
+@keyframes fbIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .fb-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--dim);line-height:1}
 .fb-header{text-align:center;margin-bottom:22px}
 .fb-ico{font-size:2.4rem;margin-bottom:8px}
@@ -215,20 +215,20 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-
 .fb-section{margin-bottom:18px}
 .fb-lbl{font-size:.8rem;font-weight:700;color:var(--dim2);margin-bottom:8px;display:block;text-transform:uppercase;letter-spacing:.04em}
 .fb-stars{display:flex;gap:8px;justify-content:center;margin-bottom:4px}
-.fb-star{font-size:2rem;cursor:pointer;transition:.15s;opacity:.35;line-height:1}
-.fb-star.on,.fb-star:hover{opacity:1;transform:scale(1.15)}
-.fb-star-lbl{text-align:center;font-size:.78rem;color:var(--dim);height:16px}
+.fb-star{font-size:2rem;cursor:pointer;transition:.15s;opacity:.3;line-height:1;user-select:none}
+.fb-star.on{opacity:1;transform:scale(1.12)}
+.fb-star-lbl{text-align:center;font-size:.78rem;color:var(--dim);height:18px;margin-top:2px}
 .fb-textarea{width:100%;padding:11px 14px;border-radius:var(--rx);border:1.5px solid var(--border);font-family:'Outfit',sans-serif;font-size:.87rem;color:var(--text);resize:vertical;min-height:90px;outline:none;transition:.2s;background:#fafbff}
 .fb-textarea:focus{border-color:var(--accent);background:#fff}
 .fb-textarea::placeholder{color:#aab0c4}
 .fb-submit{width:100%;padding:13px;border-radius:var(--rx);border:none;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;transition:.2s;margin-top:4px}
 .fb-submit:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 6px 20px rgba(99,102,241,.3)}
 .fb-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
-.fb-skip{display:block;text-align:center;margin-top:12px;font-size:.8rem;color:var(--dim);cursor:pointer;background:none;border:none;font-family:'Outfit',sans-serif;width:100%}
-.fb-skip:hover{color:var(--accent)}
-.fb-thanks{text-align:center;padding:16px 0 8px;display:none}
-.fb-thanks-ico{font-size:2.5rem;margin-bottom:8px}
-.fb-thanks-title{font-size:1.1rem;font-weight:800;color:var(--green);margin-bottom:4px}
+.fb-skip{display:block;text-align:center;margin-top:12px;font-size:.8rem;color:var(--dim);cursor:pointer;background:none;border:none;font-family:'Outfit',sans-serif;width:100%;padding:4px}
+.fb-skip:hover{color:var(--accent);text-decoration:underline}
+.fb-thanks{text-align:center;padding:20px 0 10px;display:none}
+.fb-thanks-ico{font-size:2.5rem;margin-bottom:10px}
+.fb-thanks-title{font-size:1.1rem;font-weight:800;color:var(--green);margin-bottom:6px}
 .fb-thanks-sub{font-size:.84rem;color:var(--dim)}
 
 /* image slider */
@@ -1159,55 +1159,12 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-
   </div>
 </div>
 
-<!-- ── FEEDBACK MODAL ── -->
-<div class="fb-overlay" id="fbOverlay">
-  <div class="fb-card">
-    <button class="fb-close" onclick="closeFeedback()">✕</button>
-
-    <!-- Form view -->
-    <div id="fbForm">
-      <div class="fb-header">
-        <div class="fb-ico">📸</div>
-        <div class="fb-title">We hear you!</div>
-        <div class="fb-sub">Your feedback helps us improve VinSnap for every seller. Takes 30 seconds.</div>
-      </div>
-
-      <div class="fb-section">
-        <span class="fb-lbl">⭐ Are you satisfied with the photos?</span>
-        <div class="fb-stars" id="fbStars">
-          <span class="fb-star" data-v="1" onclick="setRating(1)">★</span>
-          <span class="fb-star" data-v="2" onclick="setRating(2)">★</span>
-          <span class="fb-star" data-v="3" onclick="setRating(3)">★</span>
-          <span class="fb-star" data-v="4" onclick="setRating(4)">★</span>
-          <span class="fb-star" data-v="5" onclick="setRating(5)">★</span>
-        </div>
-        <div class="fb-star-lbl" id="fbStarLbl"></div>
-      </div>
-
-      <div class="fb-section">
-        <span class="fb-lbl">💬 Any suggestions for improvement?</span>
-        <textarea class="fb-textarea" id="fbText" placeholder="Tell us what you loved or what we can do better…" maxlength="1000"></textarea>
-      </div>
-
-      <button class="fb-submit" id="fbSubmitBtn" onclick="submitFeedback()">Submit Feedback</button>
-      <button class="fb-skip" onclick="skipFeedback()">Skip and download</button>
-    </div>
-
-    <!-- Thank you view -->
-    <div class="fb-thanks" id="fbThanks">
-      <div class="fb-thanks-ico">🎉</div>
-      <div class="fb-thanks-title">Thank you!</div>
-      <div class="fb-thanks-sub">Your feedback means a lot. Downloading your photos now…</div>
-    </div>
-  </div>
-</div>
-
 <script>
 // ══ CONFIG ═══════════════════════════════════════════════════════════
 const SB_URL     = 'https://rqzflfyqazklfnfxefct.supabase.co';
 const SB_KEY     = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxemZsZnlxYXprbGZuZnhlZmN0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYyMjgxMDIsImV4cCI6MjA5MTgwNDEwMn0.q3F9dEDdNQ7kBGtReTQx6r8wvgGks5lL-ThZAi2uPEY';
-const WEBHOOK_A  = 'https://vinsnap-init-gdsqg4fv7q-uc.a.run.app/';
-const WEBHOOK_B  = 'https://vinsnap-process-gdsqg4fv7q-uc.a.run.app/';
+const WEBHOOK_A  = 'https://vinsnap-init-gdsqg4fv7q-uc.a.run.app';
+const WEBHOOK_B  = 'https://us-central1-vinsnap-499513.cloudfunctions.net/vinsnap-process-dev';
 const GCS_BUCKET = 'vinsnap-store';
 const { createClient } = window.supabase;
 const sb = createClient(SB_URL, SB_KEY);
@@ -1220,11 +1177,6 @@ let avatarCountry  = 'india';
 let locationVariant = '';
 let genMode        = 'dynamic';
 let _userCredits   = null; // { credits_remaining, credits_reserved, plan_name, expires_at }
-
-// ══ FEEDBACK STATE ═══════════════════════════════════════════════════
-let _fbRating       = 0;
-let _fbPendingQueue = null; // { images, jobSuffix } — runs after feedback
-let _fbJobId        = null;
 
 // ══ SUBCATEGORY MAP ══════════════════════════════════════════════════
 const SHOT_LABELS = {
@@ -2546,13 +2498,15 @@ function jDlAll(jobId, e) {
 function jEsc(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
-// ══ FEEDBACK MODAL ═══════════════════════════════════════════════════
+// ══ FEEDBACK ═════════════════════════════════════════════════════════
+let _fbRating       = 0;
+let _fbPendingQueue = null;
+let _fbJobId        = null;
 
 function openFeedback(images, jobSuffix) {
   _fbPendingQueue = { images, jobSuffix };
   _fbJobId        = jobSuffix;
   _fbRating       = 0;
-  // Reset form
   document.getElementById('fbForm').style.display   = 'block';
   document.getElementById('fbThanks').style.display = 'none';
   document.getElementById('fbText').value           = '';
@@ -2581,7 +2535,6 @@ async function submitFeedback() {
   const btn  = document.getElementById('fbSubmitBtn');
   btn.disabled    = true;
   btn.textContent = 'Saving…';
-
   try {
     await fetch(`${SB_URL}/rest/v1/job_feedback`, {
       method:  'POST',
@@ -2592,17 +2545,15 @@ async function submitFeedback() {
         'Prefer':        'return=minimal',
       },
       body: JSON.stringify({
-        job_id:     _fbJobId || null,
+        job_id:     _fbJobId   || null,
         user_email: user ? user.email : null,
-        rating:     _fbRating || null,
-        feedback:   text || null,
+        rating:     _fbRating  || null,
+        feedback:   text       || null,
       })
     });
   } catch(e) {
     console.warn('Feedback save failed:', e);
   }
-
-  // Show thank you, then start download after short delay
   document.getElementById('fbForm').style.display   = 'none';
   document.getElementById('fbThanks').style.display = 'block';
   setTimeout(() => {
@@ -2623,5 +2574,46 @@ function skipFeedback() {
 }
 
 </script>
+<!-- ── FEEDBACK MODAL ── -->
+<div class="fb-overlay" id="fbOverlay">
+  <div class="fb-card">
+    <button class="fb-close" onclick="closeFeedback()">✕</button>
+
+    <div id="fbForm">
+      <div class="fb-header">
+        <div class="fb-ico">📸</div>
+        <div class="fb-title">We hear you!</div>
+        <div class="fb-sub">Your feedback helps us improve VinSnap for every seller. Takes 30 seconds.</div>
+      </div>
+
+      <div class="fb-section">
+        <span class="fb-lbl">⭐ Are you satisfied with the photos?</span>
+        <div class="fb-stars" id="fbStars">
+          <span class="fb-star" data-v="1" onclick="setRating(1)">★</span>
+          <span class="fb-star" data-v="2" onclick="setRating(2)">★</span>
+          <span class="fb-star" data-v="3" onclick="setRating(3)">★</span>
+          <span class="fb-star" data-v="4" onclick="setRating(4)">★</span>
+          <span class="fb-star" data-v="5" onclick="setRating(5)">★</span>
+        </div>
+        <div class="fb-star-lbl" id="fbStarLbl"></div>
+      </div>
+
+      <div class="fb-section">
+        <span class="fb-lbl">💬 Any suggestions for improvement?</span>
+        <textarea class="fb-textarea" id="fbText" placeholder="Tell us what you loved or what we can do better…" maxlength="1000"></textarea>
+      </div>
+
+      <button class="fb-submit" id="fbSubmitBtn" onclick="submitFeedback()">Submit Feedback</button>
+      <button class="fb-skip" onclick="skipFeedback()">Skip and download</button>
+    </div>
+
+    <div class="fb-thanks" id="fbThanks">
+      <div class="fb-thanks-ico">🎉</div>
+      <div class="fb-thanks-title">Thank you!</div>
+      <div class="fb-thanks-sub">Your feedback means a lot. Downloading your photos now…</div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
