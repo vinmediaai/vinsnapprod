@@ -373,7 +373,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-
 <body>
 
 <header class="hdr">
-  <a class="brand" href="index_6.html"><span>VinSnap</span></a>
+  <a class="brand" href="https://vinsnapdev.vinmediaai.online/"><span>VinSnap</span></a>
   <div class="hnav">
     <span class="ubadge" id="ubadge">Sign in to use</span>
     <button class="credit-badge" id="creditBadge" onclick="openUpgradeModal()" style="display:none" title="Your credits">💎 <span id="creditCount">—</span></button>
@@ -903,34 +903,63 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-
       <div class="sec-lbl" style="padding-top:20px">📍 Location / Scene</div>
 <div class="loc-grid" id="locGrid">
     <!-- ── Fashion / Ethnic (highlighted group) ── -->
-    <div class="loc-card fashion-loc" data-loc="traditional saree showroom" onclick="selectLoc(this)"><div class="loc-card-ico">🧵</div><div class="loc-card-name">Saree Showroom</div></div>
-    <div class="loc-card fashion-loc" data-loc="temple courtyard heritage" onclick="selectLoc(this)"><div class="loc-card-ico">🛕</div><div class="loc-card-name">Temple Courtyard</div></div>
-    <div class="loc-card fashion-loc" data-loc="heritage home interior" onclick="selectLoc(this)"><div class="loc-card-ico">🪔</div><div class="loc-card-name">Heritage Home</div></div>
-    <div class="loc-card fashion-loc" data-loc="carved archway ethnic" onclick="selectLoc(this)"><div class="loc-card-ico">🏯</div><div class="loc-card-name">Ethnic Archway</div></div>
-    <div class="loc-card fashion-loc" data-loc="luxury marble hall" onclick="selectLoc(this)"><div class="loc-card-ico">✨</div><div class="loc-card-name">Marble Hall</div></div>
-    <div class="loc-card fashion-loc" data-loc="indian art gallery" onclick="selectLoc(this)"><div class="loc-card-ico">🖼</div><div class="loc-card-name">Art Gallery</div></div>
-    <div class="loc-card fashion-loc" data-loc="silk store interior" onclick="selectLoc(this)"><div class="loc-card-ico">🎀</div><div class="loc-card-name">Silk Store</div></div>
-    <div class="loc-card fashion-loc" data-loc="temple entrance evening" onclick="selectLoc(this)"><div class="loc-card-ico">🪔</div><div class="loc-card-name">Temple Evening</div></div>
+    <div class="loc-card fashion-loc" data-loc="traditional saree showroom, neatly arranged fabric displays, soft focus background, clean commercial styling" onclick="selectLoc(this)"><div class="loc-card-ico">🧵</div><div class="loc-card-name">Saree Showroom</div></div>
+    <div class="loc-card fashion-loc" data-loc="temple courtyard heritage architecture, uncluttered symmetrical framing, soft ambient light" onclick="selectLoc(this)"><div class="loc-card-ico">🛕</div><div class="loc-card-name">Temple Courtyard</div></div>
+    <div class="loc-card fashion-loc" data-loc="heritage home interior, elegant tidy styling, soft natural light, commercial lifestyle feel" onclick="selectLoc(this)"><div class="loc-card-ico">🪔</div><div class="loc-card-name">Heritage Home</div></div>
+    <div class="loc-card fashion-loc" data-loc="carved ethnic archway, uncluttered symmetrical framing, soft bokeh background" onclick="selectLoc(this)"><div class="loc-card-ico">🏯</div><div class="loc-card-name">Ethnic Archway</div></div>
+    <div class="loc-card fashion-loc" data-loc="luxury marble hall, clean minimal styling, soft bokeh background" onclick="selectLoc(this)"><div class="loc-card-ico">✨</div><div class="loc-card-name">Marble Hall</div></div>
+    <div class="loc-card fashion-loc" data-loc="Indian art gallery, curated uncluttered walls, soft gallery lighting" onclick="selectLoc(this)"><div class="loc-card-ico">🖼</div><div class="loc-card-name">Art Gallery</div></div>
+    <div class="loc-card fashion-loc" data-loc="silk store interior, neatly draped fabric displays, soft focus background" onclick="selectLoc(this)"><div class="loc-card-ico">🎀</div><div class="loc-card-name">Silk Store</div></div>
+    <div class="loc-card fashion-loc" data-loc="temple entrance at evening, warm ambient glow, uncluttered composition" onclick="selectLoc(this)"><div class="loc-card-ico">🪔</div><div class="loc-card-name">Temple Evening</div></div>
     <!-- ── General locations ── -->
-    <div class="loc-card on" data-loc="indoor home hall" onclick="selectLoc(this)"><div class="loc-card-ico">🏠</div><div class="loc-card-name">Home Hall</div></div>
-    <div class="loc-card" data-loc="studio" onclick="selectLoc(this)"><div class="loc-card-ico">📸</div><div class="loc-card-name">Studio</div></div>
-    <div class="loc-card" data-loc="indoor home kitchen" onclick="selectLoc(this)"><div class="loc-card-ico">🍳</div><div class="loc-card-name">Kitchen</div></div>
-    <div class="loc-card" data-loc="indoor home bedroom" onclick="selectLoc(this)"><div class="loc-card-ico">🛏</div><div class="loc-card-name">Bedroom</div></div>
-    <div class="loc-card" data-loc="indoor balcony" onclick="selectLoc(this)"><div class="loc-card-ico">🌅</div><div class="loc-card-name">Balcony</div></div>
-    <div class="loc-card" data-loc="outdoor home garden" onclick="selectLoc(this)"><div class="loc-card-ico">🌿</div><div class="loc-card-name">Garden</div></div>
-    <div class="loc-card" data-loc="outdoor home parking" onclick="selectLoc(this)"><div class="loc-card-ico">🚗</div><div class="loc-card-name">Parking</div></div>
-    <div class="loc-card" data-loc="coastal" onclick="selectLoc(this)"><div class="loc-card-ico">🏖</div><div class="loc-card-name">Coastal</div></div>
-    <div class="loc-card" data-loc="busy city" onclick="selectLoc(this)"><div class="loc-card-ico">🏙</div><div class="loc-card-name">City Street</div></div>
-    <div class="loc-card" data-loc="airport" onclick="selectLoc(this)"><div class="loc-card-ico">✈️</div><div class="loc-card-name">Airport</div></div>
-    <div class="loc-card" data-loc="metro station" onclick="selectLoc(this)"><div class="loc-card-ico">🚇</div><div class="loc-card-name">Metro</div></div>
-    <div class="loc-card" data-loc="bathroom" onclick="selectLoc(this)"><div class="loc-card-ico">🚿</div><div class="loc-card-name">Bathroom</div></div>
-    <div class="loc-card" data-loc="theater" onclick="selectLoc(this)"><div class="loc-card-ico">🎬</div><div class="loc-card-name">Theater</div></div>
-    <div class="loc-card" data-loc="mall" onclick="selectLoc(this)"><div class="loc-card-ico">🛍</div><div class="loc-card-name">Mall</div></div>
-    <div class="loc-card" data-loc="park" onclick="selectLoc(this)"><div class="loc-card-ico">🌳</div><div class="loc-card-name">Park</div></div>
-    <div class="loc-card" data-loc="wedding venue" onclick="selectLoc(this)"><div class="loc-card-ico">💒</div><div class="loc-card-name">Wedding Venue</div></div>
-    <div class="loc-card" data-loc="festival ground" onclick="selectLoc(this)"><div class="loc-card-ico">🎉</div><div class="loc-card-name">Festival Ground</div></div>
-    <div class="loc-card" data-loc="school" onclick="selectLoc(this)"><div class="loc-card-ico">🏫</div><div class="loc-card-name">School</div></div>
-    <div class="loc-card" data-loc="jewellery studio" onclick="selectLoc(this)"><div class="loc-card-ico">💎</div><div class="loc-card-name">Jewellery Studio</div></div>
+    <div class="loc-card on" data-loc="indoor home hall, tidy minimal styling, soft natural light" onclick="selectLoc(this)"><div class="loc-card-ico">🏠</div><div class="loc-card-name">Home Hall</div></div>
+    <div class="loc-card" data-loc="minimal seamless studio backdrop, clutter-free commercial photography setup" onclick="selectLoc(this)"><div class="loc-card-ico">📸</div><div class="loc-card-name">Studio</div></div>
+    <div class="loc-card" data-loc="indoor home kitchen, clean tidy counter, soft natural light" onclick="selectLoc(this)"><div class="loc-card-ico">🍳</div><div class="loc-card-name">Kitchen</div></div>
+    <div class="loc-card" data-loc="indoor home bedroom, tidy styled interior, soft natural light" onclick="selectLoc(this)"><div class="loc-card-ico">🛏</div><div class="loc-card-name">Bedroom</div></div>
+    <div class="loc-card" data-loc="indoor balcony, clean uncluttered view, soft natural light" onclick="selectLoc(this)"><div class="loc-card-ico">🌅</div><div class="loc-card-name">Balcony</div></div>
+    <div class="loc-card" data-loc="outdoor home garden, tidy greenery, soft natural light, blurred background" onclick="selectLoc(this)"><div class="loc-card-ico">🌿</div><div class="loc-card-name">Garden</div></div>
+    <div class="loc-card" data-loc="outdoor home parking area, clean uncluttered setting, soft natural light" onclick="selectLoc(this)"><div class="loc-card-ico">🚗</div><div class="loc-card-name">Parking</div></div>
+    <div class="loc-card" data-loc="clean coastal shoreline, soft golden light, uncluttered horizon, commercial lifestyle feel" onclick="selectLoc(this)"><div class="loc-card-ico">🏖</div><div class="loc-card-name">Coastal</div></div>
+    <div class="loc-card" data-loc="stylish city street, softly blurred background pedestrians, sharp product focus" onclick="selectLoc(this)"><div class="loc-card-ico">🏙</div><div class="loc-card-name">City Street</div></div>
+    <div class="loc-card" data-loc="modern airport terminal, clean uncluttered background, soft ambient light" onclick="selectLoc(this)"><div class="loc-card-ico">✈️</div><div class="loc-card-name">Airport</div></div>
+    <div class="loc-card" data-loc="modern metro station, clean minimal background, soft ambient light" onclick="selectLoc(this)"><div class="loc-card-ico">🚇</div><div class="loc-card-name">Metro</div></div>
+    <div class="loc-card" data-loc="clean modern bathroom, minimal styled interior, soft light" onclick="selectLoc(this)"><div class="loc-card-ico">🚿</div><div class="loc-card-name">Bathroom</div></div>
+    <div class="loc-card" data-loc="elegant theater interior, soft ambient lighting, uncluttered composition" onclick="selectLoc(this)"><div class="loc-card-ico">🎬</div><div class="loc-card-name">Theater</div></div>
+    <div class="loc-card" data-loc="upscale mall interior, clean uncluttered background, soft ambient light" onclick="selectLoc(this)"><div class="loc-card-ico">🛍</div><div class="loc-card-name">Mall</div></div>
+    <div class="loc-card" data-loc="tidy green park, soft natural light, blurred background" onclick="selectLoc(this)"><div class="loc-card-ico">🌳</div><div class="loc-card-name">Park</div></div>
+    <div class="loc-card" data-loc="elegant wedding venue, softly blurred decor background, warm ambient light" onclick="selectLoc(this)"><div class="loc-card-ico">💒</div><div class="loc-card-name">Wedding Venue</div></div>
+    <div class="loc-card" data-loc="festive venue, warm ambient light, softly blurred background" onclick="selectLoc(this)"><div class="loc-card-ico">🎉</div><div class="loc-card-name">Festival Ground</div></div>
+    <div class="loc-card" data-loc="clean tidy school setting, soft natural light" onclick="selectLoc(this)"><div class="loc-card-ico">🏫</div><div class="loc-card-name">School</div></div>
+    <div class="loc-card" data-loc="jewellery studio, minimal elegant backdrop, soft focused lighting" onclick="selectLoc(this)"><div class="loc-card-ico">💎</div><div class="loc-card-name">Jewellery Studio</div></div>
+     <!-- ── Iconic World Wonders / Popular Photoshoot Locations ── -->
+<div class="loc-card fashion-loc" data-loc="Eiffel Tower Paris exterior plaza, uncrowded angle, soft bokeh background, aspirational travel-editorial feel" onclick="selectLoc(this)"><div class="loc-card-ico">🗼</div><div class="loc-card-name">Eiffel Tower</div></div>
+<div class="loc-card fashion-loc" data-loc="Taj Mahal Agra front view, uncrowded angle, soft bokeh background, aspirational travel-editorial feel" onclick="selectLoc(this)"><div class="loc-card-ico">🕌</div><div class="loc-card-name">Taj Mahal</div></div>
+<div class="loc-card fashion-loc" data-loc="Great Wall of China scenic ridge, uncrowded angle, soft bokeh background, aspirational travel-editorial feel" onclick="selectLoc(this)"><div class="loc-card-ico">🏯</div><div class="loc-card-name">Great Wall</div></div>
+<div class="loc-card fashion-loc" data-loc="Colosseum Rome ancient exterior, uncrowded angle, soft bokeh background, aspirational travel-editorial feel" onclick="selectLoc(this)"><div class="loc-card-ico">🏛</div><div class="loc-card-name">Colosseum</div></div>
+<div class="loc-card fashion-loc" data-loc="Statue of Liberty New York waterfront, uncrowded angle, soft bokeh background, aspirational travel-editorial feel" onclick="selectLoc(this)"><div class="loc-card-ico">🗽</div><div class="loc-card-name">Statue of Liberty</div></div>
+<div class="loc-card fashion-loc" data-loc="Burj Khalifa Dubai skyline base, uncrowded angle, soft bokeh background, aspirational travel-editorial feel" onclick="selectLoc(this)"><div class="loc-card-ico">🏙</div><div class="loc-card-name">Burj Khalifa</div></div>
+<div class="loc-card fashion-loc" data-loc="Santorini Greece whitewashed cliffside, uncrowded angle, soft bokeh background, aspirational travel-editorial feel" onclick="selectLoc(this)"><div class="loc-card-ico">🏝</div><div class="loc-card-name">Santorini</div></div>
+<div class="loc-card fashion-loc" data-loc="Machu Picchu Peru mountain ruins, uncrowded angle, soft bokeh background, aspirational travel-editorial feel" onclick="selectLoc(this)"><div class="loc-card-ico">⛰</div><div class="loc-card-name">Machu Picchu</div></div>
+<div class="loc-card fashion-loc" data-loc="Golden Gate Bridge San Francisco, uncrowded angle, soft bokeh background, aspirational travel-editorial feel" onclick="selectLoc(this)"><div class="loc-card-ico">🌉</div><div class="loc-card-name">Golden Gate Bridge</div></div>
+<div class="loc-card fashion-loc" data-loc="Petra Jordan rock-carved facade, uncrowded angle, soft bokeh background, aspirational travel-editorial feel" onclick="selectLoc(this)"><div class="loc-card-ico">🏛</div><div class="loc-card-name">Petra</div></div>
+<div class="loc-card fashion-loc" data-loc="Sydney Opera House harbour view, uncrowded angle, soft bokeh background, aspirational travel-editorial feel" onclick="selectLoc(this)"><div class="loc-card-ico">🎭</div><div class="loc-card-name">Sydney Opera House</div></div>
+<div class="loc-card fashion-loc" data-loc="Venice canal Italy gondola scene, uncrowded angle, soft bokeh background, aspirational travel-editorial feel" onclick="selectLoc(this)"><div class="loc-card-ico">🚤</div><div class="loc-card-name">Venice Canals</div></div>
+  <!-- ── Lifestyle / Premium Photoshoot Settings ── -->
+<div class="loc-card" data-loc="city rooftop at sunset, skyline view, clean styled composition, softly blurred background" onclick="selectLoc(this)"><div class="loc-card-ico">🌇</div><div class="loc-card-name">Rooftop Sunset</div></div>
+<div class="loc-card" data-loc="beach shoreline during golden hour, clean uncluttered composition, soft golden light" onclick="selectLoc(this)"><div class="loc-card-ico">🏖</div><div class="loc-card-name">Beach Golden Hour</div></div>
+<div class="loc-card" data-loc="palace courtyard, heritage architecture, uncluttered symmetrical framing, soft ambient light" onclick="selectLoc(this)"><div class="loc-card-ico">🏰</div><div class="loc-card-name">Palace Courtyard</div></div>
+<div class="loc-card" data-loc="luxury hotel lobby, elegant interior, clean minimal styling, soft bokeh background" onclick="selectLoc(this)"><div class="loc-card-ico">🏨</div><div class="loc-card-name">Luxury Hotel Lobby</div></div>
+<div class="loc-card" data-loc="modern living room interior, tidy styled decor, soft natural light" onclick="selectLoc(this)"><div class="loc-card-ico">🛋</div><div class="loc-card-name">Modern Living Room</div></div>
+<div class="loc-card" data-loc="minimal white studio backdrop, clutter-free commercial photography setup" onclick="selectLoc(this)"><div class="loc-card-ico">⬜</div><div class="loc-card-name">Minimal White Studio</div></div>
+<div class="loc-card" data-loc="rustic farmhouse, wooden interior, tidy styled decor, soft natural light" onclick="selectLoc(this)"><div class="loc-card-ico">🌾</div><div class="loc-card-name">Rustic Farmhouse</div></div>
+<div class="loc-card" data-loc="japanese zen garden with stone path, clean uncluttered composition, soft natural light" onclick="selectLoc(this)"><div class="loc-card-ico">🎋</div><div class="loc-card-name">Japanese Zen Garden</div></div>
+<div class="loc-card" data-loc="tropical villa poolside, clean uncluttered composition, soft natural light" onclick="selectLoc(this)"><div class="loc-card-ico">🏝</div><div class="loc-card-name">Tropical Villa Pool</div></div>
+<div class="loc-card" data-loc="scandinavian bedroom, minimalist interior, tidy styled decor, soft natural light" onclick="selectLoc(this)"><div class="loc-card-ico">🛏</div><div class="loc-card-name">Scandinavian Bedroom</div></div>
+<div class="loc-card" data-loc="new york loft, industrial interior, clean styled composition, soft ambient light" onclick="selectLoc(this)"><div class="loc-card-ico">🏙</div><div class="loc-card-name">New York Loft</div></div>
+<div class="loc-card" data-loc="paris café, outdoor seating, clean uncluttered composition, soft ambient light" onclick="selectLoc(this)"><div class="loc-card-ico">☕</div><div class="loc-card-name">Paris Café</div></div>
+<div class="loc-card" data-loc="dubai penthouse, skyline interior view, clean minimal styling, soft bokeh background" onclick="selectLoc(this)"><div class="loc-card-ico">🌆</div><div class="loc-card-name">Dubai Penthouse</div></div>
+<div class="loc-card" data-loc="swiss mountain chalet, snowy exterior, clean uncluttered composition, soft natural light" onclick="selectLoc(this)"><div class="loc-card-ico">🏔</div><div class="loc-card-name">Swiss Mountain Chalet</div></div>
+<div class="loc-card" data-loc="santorini terrace, ocean view, clean uncluttered composition, soft golden light" onclick="selectLoc(this)"><div class="loc-card-ico">🌅</div><div class="loc-card-name">Santorini Terrace</div></div>
   </div>
 </div>
     </div>
@@ -1105,23 +1134,25 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-
   <div class="mcrd">
     <button class="mxbtn" onclick="closeModal()">✕</button>
 
-    <!-- VIEW 1: Sign In / Create Account tabs -->
+    <!-- VIEW: Sign In / Create Account tabs -->
     <div class="auth-view on" id="view-credentials">
       <div class="auth-tabs">
         <button class="auth-tab on" id="tabSignIn" onclick="switchAuthMode('signin')">Sign In</button>
         <button class="auth-tab" id="tabSignUp" onclick="switchAuthMode('signup')">Create Account</button>
       </div>
+
       <div class="mtitle" id="credTitle" style="margin-bottom:14px">Sign in to VinSnap</div>
       <input class="minp" id="liEmail" type="email" placeholder="Email address" autocomplete="email">
       <input class="minp" id="liPass" type="password" placeholder="Password" autocomplete="current-password">
-      <!-- Turnstile — rendered for both sign-in and sign-up -->
+
+      <!-- Turnstile renders here, signup mode only -->
       <div class="tsWidget" id="tsWidget"></div>
+
       <button class="mbtn" id="credBtn" onclick="doSignIn()">Sign In</button>
       <div class="mmsg" id="liMsg"></div>
-      <div class="mswitch" id="forgotRow"><a onclick="showResetRequest()">Forgot password?</a></div>
     </div>
 
-    <!-- VIEW 2: Verify OTP — signup -->
+    <!-- VIEW: Verify OTP code -->
     <div class="auth-view" id="view-verify">
       <button class="mback" onclick="switchAuthMode('signup')">← Back</button>
       <div class="mtitle">Verify your email</div>
@@ -1129,47 +1160,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-
       <input class="otp-input" id="otpCode" type="text" inputmode="numeric" maxlength="6" placeholder="------" autocomplete="one-time-code">
       <button class="mbtn" id="verifyBtn" onclick="doVerifyOtp()">Verify &amp; Continue</button>
       <div class="mmsg" id="verifyMsg"></div>
-      <!-- Resend has its own Turnstile since it's a separate captcha-protected call -->
-      <div class="resend-row">Didn't get a code?
-        <a id="resendLink" onclick="doResendCode()">Resend code</a>
-      </div>
-      <div class="tsWidget" id="tsResend" style="display:none;margin-top:10px"></div>
-    </div>
-
-    <!-- VIEW 3: Reset password — enter email -->
-    <div class="auth-view" id="view-reset">
-      <button class="mback" onclick="switchAuthMode('signin')">← Back to Sign In</button>
-      <div class="mtitle">Reset your password</div>
-      <div class="otp-sub">Enter your account email and we'll send you a reset code.</div>
-      <input class="minp" id="resetEmail" type="email" placeholder="Email address" autocomplete="email">
-      <!-- Turnstile for the reset request — captcha-protected endpoint -->
-      <div class="tsWidget" id="tsReset"></div>
-      <button class="mbtn" id="resetBtn" onclick="doSendResetCode()">Send Reset Code</button>
-      <div class="mmsg" id="resetMsg"></div>
-    </div>
-
-    <!-- VIEW 4: Verify OTP — password reset -->
-    <div class="auth-view" id="view-reset-verify">
-      <button class="mback" onclick="showResetRequest()">← Back</button>
-      <div class="mtitle">Enter reset code</div>
-      <div class="otp-sub">Enter the 6-digit code sent to<br><strong id="resetVerifyEmailLbl"></strong></div>
-      <input class="otp-input" id="resetOtpCode" type="text" inputmode="numeric" maxlength="6" placeholder="------" autocomplete="one-time-code">
-      <button class="mbtn" id="resetVerifyBtn" onclick="doVerifyResetOtp()">Verify Code</button>
-      <div class="mmsg" id="resetVerifyMsg"></div>
-      <div class="resend-row">Didn't get a code?
-        <a id="resetResendLink" onclick="doResendResetCode()">Resend code</a>
-      </div>
-      <div class="tsWidget" id="tsResetResend" style="display:none;margin-top:10px"></div>
-    </div>
-
-    <!-- VIEW 5: Set new password -->
-    <div class="auth-view" id="view-newpass">
-      <div class="mtitle">Set new password</div>
-      <div class="otp-sub">Choose a new password for<br><strong id="newPassEmailLbl"></strong></div>
-      <input class="minp" id="newPass1" type="password" placeholder="New password (min 6 chars)" autocomplete="new-password">
-      <input class="minp" id="newPass2" type="password" placeholder="Confirm new password" autocomplete="new-password">
-      <button class="mbtn" id="newPassBtn" onclick="doSetNewPassword()">Set New Password</button>
-      <div class="mmsg" id="newPassMsg"></div>
+      <div class="resend-row">Didn't get a code? <a id="resendLink" onclick="doResendCode()">Resend code</a></div>
     </div>
 
   </div>
@@ -1585,268 +1576,155 @@ sb.auth.onAuthStateChange((_e, session) => {
   checkReady();
 });
 // ══ AUTH: state ══════════════════════════════════════════════════════
-let _authMode       = 'signin';
-let _pendingEmail   = '';
-let _resendCooldown     = null;
-let _resetResendCooldown = null;
+let _authMode       = 'signin';   // 'signin' | 'signup'
+let _tsWidgetId     = null;       // Turnstile widget instance id
+let _tsToken        = '';         // current Turnstile token
+let _pendingEmail   = '';         // email awaiting OTP verification
+let _resendCooldown = null;
 
-// ── Turnstile: one instance per widget slot ───────────────────────────
-// Each captcha-protected call needs its own token.
-// We keep separate widget IDs and tokens for: main, resend, reset, reset-resend.
-const _ts = {
-  main:         { elId: 'tsWidget',      id: null, token: '' },
-  resend:       { elId: 'tsResend',      id: null, token: '' },
-  reset:        { elId: 'tsReset',       id: null, token: '' },
-  resetResend:  { elId: 'tsResetResend', id: null, token: '' },
-};
-
-function _renderTs(key) {
-  if (!window.turnstile) { setTimeout(() => _renderTs(key), 300); return; }
-  const w = _ts[key];
-  const el = document.getElementById(w.elId);
-  if (!el) return;
-  el.style.display = 'flex';
-  if (w.id !== null) { turnstile.reset(w.id); return; }
-  w.id = turnstile.render(el, {
+// ── Turnstile render/reset ──────────────────────────────────────────
+function _renderTurnstile() {
+  if (!window.turnstile) { setTimeout(_renderTurnstile, 300); return; } // script still loading
+  const el = document.getElementById('tsWidget');
+  if (_tsWidgetId !== null) { turnstile.reset(_tsWidgetId); return; }
+  _tsWidgetId = turnstile.render(el, {
     sitekey: TURNSTILE_SITE_KEY,
-    callback:          (t) => { w.token = t; },
-    'expired-callback':()  => { w.token = ''; },
-    'error-callback':  ()  => { w.token = ''; },
+    callback: (token) => { _tsToken = token; },
+    'expired-callback': () => { _tsToken = ''; },
+    'error-callback': () => { _tsToken = ''; }
   });
 }
-function _resetTs(key) {
-  const w = _ts[key];
-  w.token = '';
-  if (w.id !== null && window.turnstile) turnstile.reset(w.id);
+function _resetTurnstile() {
+  _tsToken = '';
+  if (_tsWidgetId !== null && window.turnstile) turnstile.reset(_tsWidgetId);
 }
 
-// ── View helpers ──────────────────────────────────────────────────────
-function _showView(id) {
-  ['view-credentials','view-verify','view-reset','view-reset-verify','view-newpass']
-    .forEach(v => document.getElementById(v).classList.toggle('on', v === id));
-}
-
-// ── Tab switching ─────────────────────────────────────────────────────
+// ── Tab / view switching ────────────────────────────────────────────
 function switchAuthMode(mode) {
   _authMode = mode;
-  _showView('view-credentials');
+  document.getElementById('view-credentials').classList.add('on');
+  document.getElementById('view-verify').classList.remove('on');
   document.getElementById('tabSignIn').classList.toggle('on', mode==='signin');
   document.getElementById('tabSignUp').classList.toggle('on', mode==='signup');
   document.getElementById('credTitle').textContent = mode==='signin' ? 'Sign in to VinSnap' : 'Create your VinSnap account';
   document.getElementById('credBtn').textContent   = mode==='signin' ? 'Sign In' : 'Create Account';
   document.getElementById('credBtn').onclick       = mode==='signin' ? doSignIn : doSignUp;
   document.getElementById('liPass').autocomplete   = mode==='signin' ? 'current-password' : 'new-password';
-  document.getElementById('forgotRow').style.display = mode==='signin' ? '' : 'none';
   liMsg('', '');
-  _renderTs('main');
+  _renderTurnstile(); // always needed — Supabase's captcha protection covers sign-in too, not just sign-up
 }
 
 function _showVerifyView(email) {
   _pendingEmail = email;
-  _showView('view-verify');
+  document.getElementById('view-credentials').classList.remove('on');
+  document.getElementById('view-verify').classList.add('on');
   document.getElementById('verifyEmailLbl').textContent = email;
   document.getElementById('otpCode').value = '';
   verifyMsg('', '');
-  document.getElementById('tsResend').style.display = 'none';
-  _startCooldown('resendLink', 45, _resendCooldown, t => _resendCooldown = t);
+  _startResendCooldown(45);
   setTimeout(() => document.getElementById('otpCode').focus(), 100);
 }
 
-function showResetRequest() {
-  _showView('view-reset');
-  resetMsg('', '');
-  document.getElementById('resetEmail').value = '';
-  _renderTs('reset');
-  setTimeout(() => document.getElementById('resetEmail').focus(), 100);
-}
-
-function _showResetVerifyView(email) {
-  _pendingEmail = email;
-  _showView('view-reset-verify');
-  document.getElementById('resetVerifyEmailLbl').textContent = email;
-  document.getElementById('resetOtpCode').value = '';
-  resetVerifyMsg('', '');
-  document.getElementById('tsResetResend').style.display = 'none';
-  _startCooldown('resetResendLink', 45, _resetResendCooldown, t => _resetResendCooldown = t);
-  setTimeout(() => document.getElementById('resetOtpCode').focus(), 100);
-}
-
-// ── Sign In ───────────────────────────────────────────────────────────
+// ── Sign in (existing flow, unchanged) ──────────────────────────────
 async function doSignIn() {
   const email = document.getElementById('liEmail').value.trim();
   const pass  = document.getElementById('liPass').value;
   if (!email||!pass) { liMsg('Please fill in all fields.','err'); return; }
-  if (!_ts.main.token) { liMsg('Please complete the verification check.','err'); return; }
+  if (!_tsToken) { liMsg('Please complete the verification check.','err'); return; }
   const {error} = await sb.auth.signInWithPassword({
     email, password: pass,
-    options: { captchaToken: _ts.main.token }
+    options: { captchaToken: _tsToken }
   });
-  _resetTs('main');
+  _resetTurnstile(); // single-use token — must reset after every attempt, success or fail
   if (error) liMsg(error.message,'err');
 }
 
-// ── Sign Up ───────────────────────────────────────────────────────────
+// ── Sign up: email + password + Turnstile → triggers OTP email ─────
 async function doSignUp() {
   const email = document.getElementById('liEmail').value.trim();
   const pass  = document.getElementById('liPass').value;
   if (!email || !pass) { liMsg('Please fill in all fields.','err'); return; }
   if (pass.length < 6) { liMsg('Password must be at least 6 characters.','err'); return; }
-  if (!_ts.main.token) { liMsg('Please complete the verification check.','err'); return; }
+  if (!_tsToken) { liMsg('Please complete the verification check.','err'); return; }
+
   const btn = document.getElementById('credBtn');
   btn.disabled = true; btn.textContent = 'Creating account…';
+
   const { error } = await sb.auth.signUp({
     email, password: pass,
-    options: { captchaToken: _ts.main.token }
+    options: { captchaToken: _tsToken }
   });
-  _resetTs('main');
+
   btn.disabled = false; btn.textContent = 'Create Account';
-  if (error) { liMsg(error.message, 'err'); return; }
+
+  if (error) {
+    liMsg(error.message, 'err');
+    _resetTurnstile(); // tokens are single-use — must reset after every attempt, success or fail
+    return;
+  }
+
+  _resetTurnstile();
   _showVerifyView(email);
 }
 
-// ── Verify OTP — signup ───────────────────────────────────────────────
+// ── Verify the 6-digit code emailed by Supabase ──────────────────────
 async function doVerifyOtp() {
   const code = document.getElementById('otpCode').value.trim();
   if (!/^\d{6}$/.test(code)) { verifyMsg('Enter the 6-digit code from your email.','err'); return; }
+
   const btn = document.getElementById('verifyBtn');
   btn.disabled = true; btn.textContent = 'Verifying…';
+
   const { error } = await sb.auth.verifyOtp({
-    email: _pendingEmail, token: code, type: 'email'
+    email: _pendingEmail,
+    token: code,
+    type: 'email'   // current type for email-signup OTP verification (signup/magiclink are deprecated)
   });
+
   btn.disabled = false; btn.textContent = 'Verify & Continue';
+
   if (error) { verifyMsg(error.message, 'err'); return; }
-  // onAuthStateChange fires → signs user in → closeModal() called there
+  // Success — onAuthStateChange fires automatically, signs the user in, closes modal.
 }
 
-// ── Resend signup code (needs its own Turnstile token) ────────────────
+// ── Resend code, with cooldown to avoid hammering the email endpoint ─
 async function doResendCode() {
   const link = document.getElementById('resendLink');
   if (link.classList.contains('disabled')) return;
-
-  // If we don't have a fresh resend token yet, show the widget and wait
-  if (!_ts.resend.token) {
-    _renderTs('resend');
-    verifyMsg('Complete the check below then click Resend code again.', 'ok');
-    return;
-  }
-
-  const { error } = await sb.auth.resend({
-    type: 'signup',
-    email: _pendingEmail,
-    options: { captchaToken: _ts.resend.token }
-  });
-  _resetTs('resend');
-  document.getElementById('tsResend').style.display = 'none';
+  const { error } = await sb.auth.resend({ type: 'signup', email: _pendingEmail });
   if (error) { verifyMsg(error.message, 'err'); return; }
   verifyMsg('A new code has been sent.', 'ok');
-  _startCooldown('resendLink', 45, _resendCooldown, t => _resendCooldown = t);
+  _startResendCooldown(45);
 }
-
-// ── Send password reset code ──────────────────────────────────────────
-async function doSendResetCode() {
-  const email = document.getElementById('resetEmail').value.trim();
-  if (!email) { resetMsg('Please enter your email address.','err'); return; }
-  if (!_ts.reset.token) { resetMsg('Please complete the verification check.','err'); return; }
-  const btn = document.getElementById('resetBtn');
-  btn.disabled = true; btn.textContent = 'Sending…';
-  // resetPasswordForEmail is also captcha-protected when CAPTCHA is enabled in Supabase
-  const { error } = await sb.auth.resetPasswordForEmail(email, {
-    captchaToken: _ts.reset.token
-  });
-  _resetTs('reset');
-  btn.disabled = false; btn.textContent = 'Send Reset Code';
-  if (error) { resetMsg(error.message, 'err'); return; }
-  _showResetVerifyView(email);
-}
-
-// ── Verify reset OTP ──────────────────────────────────────────────────
-async function doVerifyResetOtp() {
-  const code = document.getElementById('resetOtpCode').value.trim();
-  if (!/^\d{6}$/.test(code)) { resetVerifyMsg('Enter the 6-digit code from your email.','err'); return; }
-  const btn = document.getElementById('resetVerifyBtn');
-  btn.disabled = true; btn.textContent = 'Verifying…';
-  const { error } = await sb.auth.verifyOtp({
-    email: _pendingEmail, token: code, type: 'recovery'
-  });
-  btn.disabled = false; btn.textContent = 'Verify Code';
-  if (error) { resetVerifyMsg(error.message, 'err'); return; }
-  // Code accepted — move to new-password screen
-  // (Supabase creates a temporary session we use to call updateUser)
-  _showView('view-newpass');
-  document.getElementById('newPassEmailLbl').textContent = _pendingEmail;
-  newPassMsg('', '');
-  setTimeout(() => document.getElementById('newPass1').focus(), 100);
-}
-
-// ── Resend reset code (needs its own Turnstile token) ─────────────────
-async function doResendResetCode() {
-  const link = document.getElementById('resetResendLink');
-  if (link.classList.contains('disabled')) return;
-  if (!_ts.resetResend.token) {
-    _renderTs('resetResend');
-    resetVerifyMsg('Complete the check below then click Resend code again.', 'ok');
-    return;
-  }
-  const { error } = await sb.auth.resetPasswordForEmail(_pendingEmail, {
-    captchaToken: _ts.resetResend.token
-  });
-  _resetTs('resetResend');
-  document.getElementById('tsResetResend').style.display = 'none';
-  if (error) { resetVerifyMsg(error.message, 'err'); return; }
-  resetVerifyMsg('A new reset code has been sent.', 'ok');
-  _startCooldown('resetResendLink', 45, _resetResendCooldown, t => _resetResendCooldown = t);
-}
-
-// ── Set new password ──────────────────────────────────────────────────
-async function doSetNewPassword() {
-  const p1 = document.getElementById('newPass1').value;
-  const p2 = document.getElementById('newPass2').value;
-  if (!p1 || p1.length < 6) { newPassMsg('Password must be at least 6 characters.','err'); return; }
-  if (p1 !== p2) { newPassMsg('Passwords do not match.','err'); return; }
-  const btn = document.getElementById('newPassBtn');
-  btn.disabled = true; btn.textContent = 'Saving…';
-  const { error } = await sb.auth.updateUser({ password: p1 });
-  btn.disabled = false; btn.textContent = 'Set New Password';
-  if (error) { newPassMsg(error.message, 'err'); return; }
-  newPassMsg('Password updated! Signing you in…', 'ok');
-  setTimeout(() => closeModal(), 1500);
-}
-
-// ── Shared cooldown timer ─────────────────────────────────────────────
-function _startCooldown(linkId, seconds, timerRef, setRef) {
-  clearInterval(timerRef);
-  const link = document.getElementById(linkId);
+function _startResendCooldown(seconds) {
+  clearInterval(_resendCooldown);
+  const link = document.getElementById('resendLink');
   let remaining = seconds;
   link.classList.add('disabled');
   link.textContent = `Resend code (${remaining}s)`;
-  const t = setInterval(() => {
+  _resendCooldown = setInterval(() => {
     remaining--;
     if (remaining <= 0) {
-      clearInterval(t); setRef(null);
+      clearInterval(_resendCooldown);
       link.classList.remove('disabled');
       link.textContent = 'Resend code';
     } else {
       link.textContent = `Resend code (${remaining}s)`;
     }
   }, 1000);
-  setRef(t);
 }
 
 async function doSignOut() { await sb.auth.signOut(); }
-function openModal() {
+function openModal()  {
   document.getElementById('authModal').classList.add('open');
   switchAuthMode('signin');
 }
 function closeModal() {
   document.getElementById('authModal').classList.remove('open');
   clearInterval(_resendCooldown);
-  clearInterval(_resetResendCooldown);
 }
-function liMsg(msg,type)          { const el=document.getElementById('liMsg');          el.textContent=msg; el.className='mmsg '+type; }
-function verifyMsg(msg,type)      { const el=document.getElementById('verifyMsg');      el.textContent=msg; el.className='mmsg '+type; }
-function resetMsg(msg,type)       { const el=document.getElementById('resetMsg');       el.textContent=msg; el.className='mmsg '+type; }
-function resetVerifyMsg(msg,type) { const el=document.getElementById('resetVerifyMsg'); el.textContent=msg; el.className='mmsg '+type; }
-function newPassMsg(msg,type)     { const el=document.getElementById('newPassMsg');     el.textContent=msg; el.className='mmsg '+type; }
+function liMsg(msg,type)     { const el=document.getElementById('liMsg');     el.textContent=msg; el.className='mmsg '+type; }
+function verifyMsg(msg,type) { const el=document.getElementById('verifyMsg'); el.textContent=msg; el.className='mmsg '+type; }
 
 // ══ CATEGORY ═════════════════════════════════════════════════════════
 function onCatChange() {
